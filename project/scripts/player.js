@@ -272,6 +272,8 @@ function charIncMortarPower(){
         this.mortarPower+=2 * window._timeSinceLastFrame;
     }
     else if(held==0)this.mortarPower=0;
+
+    this.mortarPower = Math.min(this.mortarPower, MAX_MORTAR_POWER)
     
     if(player.currGun!=guns["MORTAR"]); 
 }

@@ -159,7 +159,7 @@ function updateStats(g,p){
         updateStats.pwrBarTable.className="";
         
         if(player.mortarPower>0){
-                updateStats.pwrCount.innerHTML=pad(p.mortarPower,2);
+                updateStats.pwrCount.innerHTML=pad(Math.floor(p.mortarPower),2);
         }else updateStats.pwrCount.innerHTML="";
     }else if(updateStats.pwrBarTable.className=="")updateStats.pwrBarTable.className="inactiveStats";
 
