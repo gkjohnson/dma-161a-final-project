@@ -119,8 +119,8 @@ function notification(setX,setY,setW,setH){
 
 
 function noteFade(){
-    if(this.active&&this.trans<this.MAXTRANS)this.trans+=map(0,.1,0,this.MAXTRANS,this.MAXTRANS-this.trans);
-    else if(!this.active&&this.trans>0)this.trans-=.25;
+    if(this.active&&this.trans<this.MAXTRANS)this.trans+=map(0,.1,0,this.MAXTRANS,this.MAXTRANS-this.trans) * window._timeSinceLastFrame;
+    else if(!this.active&&this.trans>0)this.trans-=.25 * window._timeSinceLastFrame;
     
     if(this.trans>this.MAXTRANS)this.trans=this.MAXTRANS;
     else if(this.trans<0)this.trans=0;
@@ -134,8 +134,6 @@ function noteRender(c){
     c.fillRect(this.x+.5,this.y+.5,this.w,this.h);
     c.strokeRect(this.x+.5,this.y+.5,this.w,this.h);
     c.strokeRect(this.x+this.w/4+.5,this.y+3.5,2*this.w/4,this.h-6);
-    
-    
 }
 
 function noteCalc(){
@@ -146,8 +144,8 @@ function noteCalc(){
 }
 
 function noteMove(){
-    this.t+=.1;
+    this.t+=.1 * window._timeSinceLastFrame;
     
     //this.yVel=Math.sin(this.t)*.5;
-    this.y+=Math.sin(this.t)*.5;
+    this.y+=Math.sin(this.t)*.5 * window._timeSinceLastFrame;
 }

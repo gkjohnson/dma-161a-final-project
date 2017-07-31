@@ -49,7 +49,7 @@ function char(setX,setY){
     this.JUMPVEL=19; //initial jump velocity
     this.MAXJUMP=2;
     this.DAMPENFACTOR=.2;
-    this.FRICTION=1.3;
+    this.FRICTION=0.3;
     
     
     //setup invalidating nodes
@@ -93,12 +93,12 @@ function charMove(){
     else if(!keyU){this.canJump=1;}
     
     if((!keyL&&!keyR&&this.onGround)||(keyL&&keyR)){
-        this.xVel*=(1 / this.FRICTION) * window._timeSinceLastFrame;
+        this.xVel-= (this.xVel * this.FRICTION) * window._timeSinceLastFrame;
         if(Math.abs(this.xVel)<this.MINVEL)this.xVel=0;
     } //moving
     //else if(keyL&&keyR){this.xAcc=0;}
-    else if(keyL){this.xAcc=-this.RUNACC * window._timeSinceLastFrame;}
-    else if(keyR){this.xAcc=this.RUNACC * window._timeSinceLastFrame;}
+    else if(keyL){this.xAcc=-this.RUNACC;}
+    else if(keyR){this.xAcc=this.RUNACC;}
 
     this.yVel+=this.yAcc * window._timeSinceLastFrame;
     

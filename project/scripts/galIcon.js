@@ -104,9 +104,9 @@ function galIconMove(mouseX,mouseY){
         this.x=mouseX-this.xOffset;
         this.y=mouseY-this.yOffset;
     } else {
-        this.vel*=this.friction;
-        this.x+=this.vel*Math.cos(this.angle);
-        this.y+=this.vel*Math.sin(this.angle);  
+        this.vel-=(1-this.friction)*this.vel*window._timeSinceLastFrame;
+        this.x+=this.vel*Math.cos(this.angle) * window._timeSinceLastFrame;
+        this.y+=this.vel*Math.sin(this.angle) * window._timeSinceLastFrame;
     }
     
     if(this.x<this.edgeX){
@@ -212,8 +212,8 @@ function galIconOrganize(){
         
     var speed=75;   
     
-    this.y+=map(-speed,speed,-200,200,this.orgY-this.y);
-    this.x+=map(-speed,speed,-200,200,this.orgX-this.x);
+    this.y+=map(-speed,speed,-200,200,this.orgY-this.y) * window._timeSinceLastFrame;
+    this.x+=map(-speed,speed,-200,200,this.orgX-this.x) * window._timeSinceLastFrame;
 
 
     if(dist(this.x,this.y,this.orgX,this.orgY)<.5){
