@@ -20,9 +20,9 @@
         <script type="text/javascript">
                 
             //background colors
-            var outColor="#314139";
-            var edgeColor="#2a3831";
-            var innerBgColor="#222e2a";
+            var outColor="#00ACC1 ";
+            var edgeColor="#00838F";
+            var innerBgColor="#004b54";
             
             //Global Variables
             var canvasW=1000;
@@ -228,15 +228,15 @@
 
             }
             .stats{
-                font-size: 10px;
+                font-size: 12px;
                 font-family:Arial, Helvetica, sans-serif;
                 color:#FFFFFF;
             }
             .inactiveStats{
-                font-size: 10px;
+                font-size: 12px;
                 font-family:Arial, Helvetica, sans-serif;
                 color:#FFFFFF;
-                opacity:0.2;
+                opacity:0.35;
             }
             canvas:focus{
                 outline: none;
@@ -249,14 +249,11 @@
                 <td id="shell">
                     <table border="0" class="stats" cellpadding="0" cellspacing="1" width="600">
                         <tr>
-                            <td colspan="6" class="yellowText" align="left">GARRETT JOHNSON</td>
-                        </tr>
-                        <tr>
-                            <td width="70" id="weapon">Gun</td>
+                            <td width="100" id="weapon">Gun</td>
                             <td width="175">
                                 <table cellpadding="1" class="inactiveStats" id="powerbarTable">
                                     <tr>
-                                        <td>Power: </td>
+                                        <td>Power </td>
                                         <td bgcolor="#FFFFFF" id="powerBar" width="0"></td>
                                         <td id="powerCount"></td>
                                     </tr>
@@ -265,7 +262,7 @@
                             <td width="225">
                                 <table cellpadding="1" class="inactiveStats" id="laserCoolTable">
                                     <tr>
-                                        <td>Laser_Cooldown: </td>
+                                        <td>Laser_Cooldown </td>
                                         <td bgcolor="#FFFFFF" id="laserCoolBar" width="0"></td>
                                         <td id="laserCoolCount"></td>
                                     </tr>
@@ -275,7 +272,7 @@
                             <td align="right" width="150">
                                 <table border="0" cellpadding="0" cellspacing="0" width="150" id="comboTable">
                                     <tr>
-                                        <td>Combo:</td>
+                                        <td>Combo </td>
                                         <td width="50"></td>
                                         <td id="comboCount" width="50" align="right">0001</td>
                                     </tr>

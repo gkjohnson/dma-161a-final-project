@@ -171,9 +171,8 @@ function mortarRender(c){
     if(!this.wasHit){
         c.beginPath();
         c.arc(this.x,this.y,width/4,0,2*Math.PI,false);
-        c.fillStyle="rgba(220,150,150,1)";
+        c.fillStyle="#F48FB1";
         c.fill();
-        c.stroke();
     }
 }
 function mortarMove(){

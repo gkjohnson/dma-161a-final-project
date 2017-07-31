@@ -274,8 +274,6 @@ function charIncMortarPower(){
     else if(held==0)this.mortarPower=0;
 
     this.mortarPower = Math.min(this.mortarPower, MAX_MORTAR_POWER)
-    
-    if(player.currGun!=guns["MORTAR"]); 
 }
 
 function charStop(){
@@ -285,5 +283,5 @@ function charStop(){
 }
 
 function charStationaryTransform(){
-    if(game.status==GALLERY);
+
 }

@@ -127,30 +127,30 @@ function pauseGame(c){
         var start=canvasH/3+15;
             
             
-        c.fillText("W or UP :",left,start+2*sep);
+        c.fillText("W or UP ",left,start+2*sep);
         c.fillText("Jump",right,start+2*sep);
 
-        c.fillText("A or LEFT :",left,start+3*sep);
+        c.fillText("A or LEFT ",left,start+3*sep);
         c.fillText("Move Left",right,start+3*sep);
 
-        c.fillText("D or RIGHT :",left,start+4*sep);
+        c.fillText("D or RIGHT ",left,start+4*sep);
         c.fillText("Move Right",right,start+4*sep);
         
-        c.fillText("S or DOWN :",left,start+5*sep);
+        c.fillText("S or DOWN ",left,start+5*sep);
         c.fillText("Interact",right,start+5*sep);
         
-        c.fillText("Q or / :",left,start+7*sep);
+        c.fillText("Q or / ",left,start+7*sep);
         c.fillText("Cycle Weapon",right,start+7*sep);
         
-        c.fillText("1 to 4 :",left,start+8*sep);
+        c.fillText("1 to 4 ",left,start+8*sep);
         c.fillText("Swap directly to a weapon",right,start+8*sep);
         
-            c.fillText("SPACE :",left,start+10*sep);
+            c.fillText("SPACE ",left,start+10*sep);
         c.fillText("Start a new game if not already playing one",right,start+10*sep);
         
         c.font="bold 10pt Arial";
-        c.fillStyle="#FFCC00";
-        c.fillText("Instructions:",left,start+1*sep);
+        c.fillStyle="white";
+        c.fillText("Instructions",left,start+1*sep);
         } else if(game.status==GALLERY){
             var sep=12;
             var left=100;
@@ -158,16 +158,16 @@ function pauseGame(c){
 
             var start=canvasH/2+48;
             
-            c.fillText("W or UP :",left,start+2*sep);
+            c.fillText("W or UP ",left,start+2*sep);
             c.fillText("Organize",right,start+2*sep);
 
-            c.fillText("A or LEFT :",left,start+3*sep);
+            c.fillText("A or LEFT ",left,start+3*sep);
             c.fillText("Previous Page",right,start+3*sep);
 
-            c.fillText("D or RIGHT :",left,start+4*sep);
+            c.fillText("D or RIGHT ",left,start+4*sep);
             c.fillText("Next Page",right,start+4*sep);
         
-            c.fillText("S or DOWN :",left,start+5*sep);
+            c.fillText("S or DOWN ",left,start+5*sep);
             c.fillText("Close",right,start+5*sep);
         
             c.font="bold 10pt Arial";
