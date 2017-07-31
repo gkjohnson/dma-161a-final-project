@@ -141,11 +141,17 @@
                 if(!pause)pauseGame(c);
             }   
             window.onfocus = document.onfocus = function() {
+                // reset frame time here because while the game
+                // gets paused on blur, requestAnimationFrame will not
+                // continue to get called, meaning the next frame
+                // delta time could be HUGE. We prevent it with this
+                window._lastFrameTime = window.performance.now();
+
                 if(pause&&game.status!=PLAYING)pauseGame(c);
             }   
             
             function gameLoopWithSq(){
-                if (!window._lastFrameTime) window._lastFrameTime = window.performance.now()
+                if (!window._lastFrameTime) window._lastFrameTime = window.performance.now();
                 window._timeSinceLastFrame = window.performance.now() - window._lastFrameTime;
                 window._lastFrameTime = window.performance.now();
 
