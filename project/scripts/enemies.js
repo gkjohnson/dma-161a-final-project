@@ -46,8 +46,8 @@ function bird(){
 
 function birdMove(){
 	this.yVel=Math.sin(this.baseAngle+(this.x/360)*2*Math.PI)*this.waveMag*Math.random();
-	this.x+=this.xVel;
-	this.y+=this.yVel;
+	this.x+=this.xVel * window._timeSinceLastFrame;
+	this.y+=this.yVel * window._timeSinceLastFrame;
 	this.invSq();
 	
 	if(this.x>canvasW+this.w||this.x<-this.w*2){

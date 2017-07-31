@@ -81,10 +81,10 @@ function charJump(){
 }
 
 function charMove(){
-		if(gameStop&&this.onGround){
-			this.stopAll();
-			return;
-		}
+	if(gameStop&&this.onGround){
+		this.stopAll();
+		return;
+	}
 
 	
 	if(this.xVel||this.yVel||keyL||keyR||keyU||keyD)this.invSq();
@@ -92,17 +92,20 @@ function charMove(){
 	if(keyU&&this.jumpCount>0&&this.canJump==true){this.jump();this.canJump=false;} //jumping
 	else if(!keyU){this.canJump=1;}
 	
-	if((!keyL&&!keyR&&this.onGround)||(keyL&&keyR)){this.xVel/=this.FRICTION;if(Math.abs(this.xVel)<this.MINVEL)this.xVel=0;} //moving
+	if((!keyL&&!keyR&&this.onGround)||(keyL&&keyR)){
+		this.xVel*=(1 / this.FRICTION) * window._timeSinceLastFrame;
+		if(Math.abs(this.xVel)<this.MINVEL)this.xVel=0;
+	} //moving
 	//else if(keyL&&keyR){this.xAcc=0;}
-	else if(keyL){this.xAcc=-this.RUNACC;}
-	else if(keyR){this.xAcc=this.RUNACC;}
+	else if(keyL){this.xAcc=-this.RUNACC * window._timeSinceLastFrame;}
+	else if(keyR){this.xAcc=this.RUNACC * window._timeSinceLastFrame;}
 
-	this.yVel+=this.yAcc;
+	this.yVel+=this.yAcc * window._timeSinceLastFrame;
 	
 	
 	
 	if(Math.abs(this.xVel)<this.MAXVEL||(Math.abs(this.xVel)/this.xVel)!=(Math.abs(this.xAcc)/this.xAcc))
-		this.xVel+=this.xAcc;
+		this.xVel+=this.xAcc * window._timeSinceLastFrame;
 	else if(Math.abs(this.xVel+this.xAcc)>=this.MAXVEL)
 		this.xVel=(this.xVel/Math.abs(this.xVel))*this.MAXVEL;
 	
@@ -113,13 +116,13 @@ function charMove(){
 
 	
 	if((dirArray[RIGHT])!="null"){
-		this.xVel*=-this.DAMPENFACTOR;
+		this.xVel*=-this.DAMPENFACTOR * window._timeSinceLastFrame;
 		this.x=dirArray[RIGHT];
 	} else if(dirArray[LEFT]!="null"){
-		this.xVel*=-this.DAMPENFACTOR;
+		this.xVel*=-this.DAMPENFACTOR * window._timeSinceLastFrame;
 		this.x=dirArray[LEFT];
 	} else{
-		this.x+=this.xVel;
+		this.x+=this.xVel * window._timeSinceLastFrame;
 
 	}
 
@@ -128,15 +131,19 @@ function charMove(){
 		if(this.yVel>GRAV){
 			this.yVel*=-this.DAMPENFACTOR;
 			if(!keyL&&!keyR)
-				this.xVel/=this.FRICTION+1;
-			this.onGround=false;}
-		else {this.yVel=0;this.onGround=true;}
+				this.xVel*=(1/(1+this.FRICTION)) * window._timeSinceLastFrame;
+			this.onGround=false;
+		}
+		else {
+			this.yVel=0;
+			this.onGround=true;
+		}
 		this.y=dirArray[DOWN];
 	} else if(dirArray[UP]!="null"){
 		this.yVel=0;	
 		this.y=dirArray[UP];
 	} else {
-		this.y+=this.yVel;	
+		this.y+=this.yVel * window._timeSinceLastFrame;	
 	}
 	
 		
@@ -262,7 +269,7 @@ function charGunTo(gun){
 function charIncMortarPower(){
 	
 	if(this.mortarPower<MAX_MORTAR_POWER&&held>0&&player.currGun==guns['MORTAR']){
-		this.mortarPower+=2;
+		this.mortarPower+=2 * window._timeSinceLastFrame;
 	}
 	else if(held==0)this.mortarPower=0;
 	

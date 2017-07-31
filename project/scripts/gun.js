@@ -67,8 +67,8 @@ function gunRender(c){
 function gunMove(){
 //calculate the movement of the gun bullet
 	if(!this.isLive)return;
-	this.x+=this.xVel;
-	this.y+=this.yVel;
+	this.x+=this.xVel * window._timeSinceLastFrame;
+	this.y+=this.yVel * window._timeSinceLastFrame;
 	
 	if(!(this.x>-this.WIDTH&&this.x<canvasW+this.WIDTH&&this.y>-this.WIDTH&&this.y<canvasH+this.WIDTH))this.isLive=false;
 }
@@ -179,9 +179,9 @@ function mortarRender(c){
 function mortarMove(){
 //calculate the movement of the mortar shell
 	if(!this.isLive)return;
-	this.x+=this.xVel;
-	this.yVel+=GRAV;
-	this.y+=this.yVel;
+	this.x+=this.xVel * window._timeSinceLastFrame;
+	this.yVel+=GRAV * window._timeSinceLastFrame;
+	this.y+=this.yVel * window._timeSinceLastFrame;
 	
 	this.invSq();
 
@@ -367,9 +367,9 @@ function flameRespawn(setX,setY,dirAngle){
 
 }
 function flameMove(){
-	this.vel-=this.deAcc;
-	this.x+=this.vel*Math.cos(this.angle);
-	this.y+=this.vel*Math.sin(this.angle);
+	this.vel-=this.deAcc * window._timeSinceLastFrame;
+	this.x+=this.vel*Math.cos(this.angle) * window._timeSinceLastFrame;
+	this.y+=this.vel*Math.sin(this.angle) * window._timeSinceLastFrame;
 	if(Math.abs(this.vel)<this.deAcc)this.isLive=false;
 }
 
@@ -584,18 +584,8 @@ function laserRenderNodeSetup(){ //idealize this part of the code -- too many in
 function laserMove(){
 //calculate the movement of the gun bullet
 	if(!this.isLive)return;
-	this.x+=this.xVel;
-	this.y+=this.yVel;
-	
-	if(!(this.x>-this.LENGTH&&this.x<canvasW+this.LENGTH&&this.y>-this.LENGTH&&this.y<canvasH+this.LENGTH))this.isLive=false;
-}
-
-
-function laserMove(){
-//calculate the movement of the gun bullet
-	if(!this.isLive)return;
-	this.x+=this.xVel;
-	this.y+=this.yVel;
+	this.x+=this.xVel * window._timeSinceLastFrame;
+	this.y+=this.yVel * window._timeSinceLastFrame;
 	
 	if(!(this.x>-this.LENGTH&&this.x<canvasW+this.LENGTH&&this.y>-this.LENGTH&&this.y<canvasH+this.LENGTH))this.isLive=false;
 }
@@ -655,10 +645,10 @@ function spark(setX,setY,angle){
 	
 }
 function sparkMove(){
-	this.x+=this.xVel;
-	this.y+=this.yVel;
+	this.x+=this.xVel * window._timeSinceLastFrame;
+	this.y+=this.yVel * window._timeSinceLastFrame;
 	
-	this.yVel+=GRAV;
+	this.yVel+=GRAV * window._timeSinceLastFrame;
 }
 
 function sparkRender(c){
@@ -679,7 +669,7 @@ function sparkCalc(){
 	this.move();
 	this.invSq();
 	
-	this.trans-=Math.random()*.04+.02;
+	this.trans-= (Math.random()*.04+.02) * window._timeSinceLastFrame;
 	this.color="rgba(200,255,"+this.blue+","+this.trans+")";
 
 	this.w*=.95;
