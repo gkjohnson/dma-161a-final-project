@@ -5,7 +5,7 @@ Final "portfolio" project for a web media class in D|MA 161A. I used the project
 
 This class was my first introduction to Javascript and handwritten HTML and CSS. We've come a long way!
 
-[Demo Here!](//gkjohnson.github.io/dma-161a-final-project/project/)
+[Demo Here!](//gkjohnson.github.io/dma161a-final-project/project/)
 
 ![update](/docs/updated.png)
 
