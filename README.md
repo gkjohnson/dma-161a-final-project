@@ -7,6 +7,8 @@ This class was my first introduction to Javascript and handwritten HTML and CSS.
 
 [Demo Here!](//gkjohnson.github.io/dma-161a-final-project/project/)
 
+![original](/docs/original.png)
+
 ## Controls
 ```
 WASD, Arrow keys            Move
