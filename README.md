@@ -7,7 +7,11 @@ This class was my first introduction to Javascript and handwritten HTML and CSS.
 
 [Demo Here!](//gkjohnson.github.io/dma-161a-final-project/project/)
 
-![original](/docs/original.png)
+![update](/docs/updated.png)
+
+## Code Update
+
+The original project only ran at 25 frames per second, so I updated the code to get it running at 60fps and changed the colors and UI a bit, as well. The original state of the project can be found [here](../../tree/original-version)!
 
 ## Controls
 ```
