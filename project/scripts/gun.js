@@ -265,7 +265,7 @@ function flameThrower(setX,setY){
     this.on=false;
     this.enabled=false;
     
-    this.flames=new Array(50);
+    this.flames=new Array(100);
     for(var i=0;i<this.flames.length;i++){
         this.flames[i]=new flame(this.x, this.y, this.angle);
     }
