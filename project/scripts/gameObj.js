@@ -29,7 +29,7 @@ function gameInfo(){
 }
 
 function gameCalcTime(){
-    if(this.time>0)this.time--;
+    if(this.time>0)this.time-=1 * window._timeSinceLastFrame;
 }
 
 function gameCalc(){
@@ -39,7 +39,7 @@ function gameCalc(){
         
         
     this.calcTime();
-    this.comboTimer--;
+    this.comboTimer-=1 * window._timeSinceLastFrame;
     if(this.comboTimer==0)this.comboCount=1;
     if(this.time==0&&this.status==PLAYING){
         this.status=GAMEOVER;
@@ -116,7 +116,7 @@ function pauseGame(c){
         
         
         if(game.status==PLAYING){
-            c.fillText("Press Q to quit game <-- change key because it may be accidentally hit when playing after pause ",10,canvasH/8+24);
+            c.fillText("Press Q to quit game",10,canvasH/8+24);
         }   
     
         if(game.status!=GALLERY){
@@ -145,7 +145,7 @@ function pauseGame(c){
         c.fillText("1 to 4 ",left,start+8*sep);
         c.fillText("Swap directly to a weapon",right,start+8*sep);
         
-            c.fillText("SPACE ",left,start+10*sep);
+        c.fillText("SPACE ",left,start+10*sep);
         c.fillText("Start a new game if not already playing one",right,start+10*sep);
         
         c.font="bold 10pt Arial";

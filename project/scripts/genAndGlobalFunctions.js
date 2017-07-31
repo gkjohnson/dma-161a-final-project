@@ -174,7 +174,7 @@ function updateStats(g,p){
 
     //update Game Time
     updateStats.timeBar.width=map(0,775,0,STD_GAME_TIME,g.time);
-    updateStats.timeCount.innerHTML=pad(g.time,5);
+    updateStats.timeCount.innerHTML=pad(Math.floor(g.time),5);
     
     //update Combo Table
     updateStats.comboBar.width=map(0,148,0,MAX_COMBO_TIMER,g.comboTimer);
